@@ -42,7 +42,7 @@ Variables
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 650px;
-  --fixed-width: 620px;
+  --fixed-width: 580px;
 }
 /*
 =============== 
@@ -221,7 +221,9 @@ main {
   transition: var(--transition);
   cursor: pointer;
 }
-.next-question:hover {
+.next-question:hover,
+.close-btn:hover,
+.submit-btn:hover {
   background: #ffb100;
   color: var(--clr-black);
 }
@@ -303,7 +305,7 @@ Loading
 
 .modal-content {
   background: var(--clr-white);
-  width: 90vw;
+  width: 70vw;
   max-width: var(--fixed-width);
   padding: 3rem;
   border-radius: var(--radius);
@@ -321,7 +323,7 @@ Loading
 }
 
 .modal-content p {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   text-transform: none;
 }
 .close-btn {

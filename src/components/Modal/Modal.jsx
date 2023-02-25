@@ -19,6 +19,7 @@ const Modal = () => {
       <div className='modal-content'>
         <img src={iconURL(iconURL)} alt='congrats-icon' />
         <h2>{percent < 45 ? "failed!" : "congrats!"}</h2>
+        {percent < 45 && <p>WHAT DO YOU KNOW?</p>}
         <p>You answered {percent}% of questions correctly</p>
         <button className='close-btn' onClick={closeModal}>
           play again

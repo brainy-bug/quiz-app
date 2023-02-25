@@ -7,6 +7,7 @@ import {
   SET_INDEX,
   SET_ERROR,
   SET_CORRECT,
+  SET_QUIZ,
   CLOSE_MODAL,
 } from "../utils/actions";
 import reducer from "../utils/reducer";
