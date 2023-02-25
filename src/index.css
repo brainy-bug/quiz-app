@@ -185,9 +185,7 @@ main {
   .answer-btn {
     max-width: 60%;
   }
-  .modal-content img{
-      width:30%
-  }
+
 }
 .answer-btn:hover {
   background: var(--clr-primary-5);
@@ -320,15 +318,19 @@ Loading
   width:50%
 }
 
+
+.modal-content p {
+  font-size: 1rem;
+  text-transform: none;
+}
+
 @media screen and (min-width: 580px) {
   .modal-content img{
       width:30%
   }
-}
-
-.modal-content p {
+  .modal-content p {
   font-size: 1.4rem;
-  text-transform: none;
+}
 }
 .close-btn {
   margin-right: auto;

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import axios from "axios";
 import {
   SET_WAITING,
@@ -86,6 +86,7 @@ const AppProvider = ({ children }) => {
       const url = `${API_ENDPOINT}&amount=${amount}&category=${table[category]}&difficulty=${difficulty}&type=multiple`;
       dispatch({ type: RESET });
       fetchQuestions(url);
+      
     }
   };
 
