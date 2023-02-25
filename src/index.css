@@ -250,9 +250,13 @@ Form
   border: none;
   background: var(--clr-grey-10);
   font-size: 1rem;
-  padding: 0.25rem 0.5rem;
+  padding: 0.85rem ;
   width: 100%;
   border-radius: var(--radius);
+  text-transform: capitalize;
+}
+.form-input:focus{
+  outline: none;
 }
 .error {
   color: var(--clr-red-dark);

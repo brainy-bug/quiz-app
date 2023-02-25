@@ -3,7 +3,7 @@ import { Modal, Loader, SetupForm } from "../../components";
 
 function App() {
   const {
-    waiting,
+    isWaiting,
     isLoading,
     questions,
     index,
@@ -12,7 +12,7 @@ function App() {
     checkAnswer,
   } = useGlobalContext();
 
-  if (waiting) return <SetupForm />;
+  if (isWaiting) return <SetupForm />;
   if (isLoading) return <Loader />;
 
   const { question, incorrect_answers, correct_answer } = questions[index];

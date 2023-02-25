@@ -7,9 +7,12 @@ import {
   SET_CORRECT,
   SET_QUIZ,
   CLOSE_MODAL,
+  RESET,
 } from "./actions";
 
 const reducer = (state, action) => {
+  const quiz = state.quiz;
+
   switch (action.type) {
     case SET_WAITING:
       return { ...state, isWaiting: action.payload };
@@ -26,7 +29,13 @@ const reducer = (state, action) => {
       else return { ...state, index: newIndex };
 
     case SET_ERROR:
-      return { ...state, error: true };
+      const error = state.error;
+      if (action.payload)
+        return {
+          ...state,
+          error: { ...error, bool: true, response: action.payload },
+        };
+      return { ...state };
 
     case SET_CORRECT:
       if (state.index < state.questions.length - 1) {
@@ -37,10 +46,34 @@ const reducer = (state, action) => {
             index: state.index + 1,
           };
         else return { ...state, index: state.index + 1 };
-      } else return { ...state, isModalOpen: true, index: 0, correct: 0 };
+      } else
+        return {
+          ...state,
+          correct: state.correct + 1,
+          isModalOpen: true,
+          index: 0,
+        };
+
+    case SET_QUIZ:
+      return {
+        ...state,
+        quiz: { ...quiz, [action.payload.name]: action.payload.value },
+      };
 
     case CLOSE_MODAL:
-      return { ...state, isModalOpen: false, correct: 0, isWaiting: true };
+      return { ...state, isModalOpen: false, isWaiting: true };
+
+    case RESET:
+      return {
+        ...state,
+        correct: 0,
+        error: false,
+        quiz: {
+          ...quiz,
+          category: "any category",
+          difficulty: "any dificulty",
+        },
+      };
 
     default:
       throw new Error(`no matching "${action.type} action`);

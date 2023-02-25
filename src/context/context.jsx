@@ -9,32 +9,28 @@ import {
   SET_CORRECT,
   SET_QUIZ,
   CLOSE_MODAL,
+  RESET,
 } from "../utils/actions";
 import reducer from "../utils/reducer";
 
-const table = {
-  sports: 21,
-  history: 23,
-  politics: 24,
-};
+import { table } from "../data/data";
 
 const API_ENDPOINT = "https://opentdb.com/api.php?";
 
-const url = "";
-const tempUrl =
-  "https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple";
-
 const initialState = {
-  isWaiting: null,
+  isWaiting: true,
   isLoading: true,
   questions: [],
   index: 0,
   correct: 0,
-  error: false,
+  error: {
+    bool: false,
+    response: "",
+  },
   quiz: {
-    amount: 10,
-    category: "sports",
-    difficulty: "easy",
+    amount: 5,
+    category: "any category",
+    difficulty: "any dificulty",
   },
   isModalOpen: false,
 };
@@ -55,7 +51,10 @@ const AppProvider = ({ children }) => {
         dispatch({ type: SET_WAITING, payload: false });
       } else {
         dispatch({ type: SET_WAITING, payload: true });
-        dispatch({ type: SET_ERROR });
+        dispatch({
+          type: SET_ERROR,
+          payload: "can't generate questions, please try different options",
+        });
       }
     } else {
       dispatch({ type: SET_WAITING, payload: true });
@@ -63,6 +62,7 @@ const AppProvider = ({ children }) => {
   };
 
   const nextQuestion = () => dispatch({ type: SET_INDEX });
+
   const checkAnswer = (value) =>
     dispatch({ type: SET_CORRECT, payload: value });
 
@@ -70,13 +70,35 @@ const AppProvider = ({ children }) => {
     dispatch({ type: CLOSE_MODAL });
   };
 
-  useEffect(() => {
-    fetchQuestions(tempUrl);
-  }, []);
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    dispatch({ type: SET_QUIZ, payload: { name, value } });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { amount, category, difficulty } = state.quiz;
+    if (category === "any category" || difficulty === "any difficulty") {
+      dispatch({ type: SET_ERROR, payload: "all fields are required" });
+      return;
+    } else {
+      const url = `${API_ENDPOINT}&amount=${amount}&category=${table[category]}&difficulty=${difficulty}&type=multiple`;
+      dispatch({ type: RESET });
+      fetchQuestions(url);
+    }
+  };
 
   return (
     <AppContext.Provider
-      value={{ ...state, nextQuestion, checkAnswer, closeModal }}
+      value={{
+        ...state,
+        nextQuestion,
+        checkAnswer,
+        closeModal,
+        handleChange,
+        handleSubmit,
+      }}
     >
       {children}
     </AppContext.Provider>

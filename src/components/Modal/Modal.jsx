@@ -1,13 +1,15 @@
 import { useGlobalContext } from "../../context/context";
-import congratIcon from "../../assets/congrats-icon.png";
+import congratsIcon from "../../assets/congrats-icon.png";
 import angryIcon from "../../assets/angry-icon.png";
 
 const Modal = () => {
-  const { isModalOpen, closeModal, correct, questions } = useGlobalContext();
+  const { isModalOpen, closeModal, correct, questions,setCorrect } = useGlobalContext();
+
   const percent = ((correct / questions.length) * 100).toFixed(0);
+
   const iconURL = () => {
     if (percent < 45) return angryIcon;
-    return congratIcon;
+    return congratsIcon;
   };
 
   return (
