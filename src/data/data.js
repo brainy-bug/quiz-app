@@ -8,7 +8,7 @@ export const categoryOptions = [
   "entertainment: film",
   "entertainment: cartoon & animations",
   "science & nature",
-  "science; mathematics",
+  "science: mathematics",
   "animals",
   "geography",
   "science: computers",
