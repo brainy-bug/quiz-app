@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 // Components
-import App  from "./components/App";
+import App  from "./App";
 
 // AppProvider
 import AppProvider from "./utils/AppProvider";

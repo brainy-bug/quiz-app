@@ -50,6 +50,7 @@ const Login = () => {
 
 const Container = styled.section`
   display: grid;
+  /* grid-template-columns: 1.2fr 1fr; */
 
   @media screen and (min-width: 650px) {
     grid-template-columns: 1.2fr 1fr;

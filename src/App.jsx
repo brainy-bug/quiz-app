@@ -12,7 +12,7 @@ import {
   SharedLayout,
   Home,
   Dashboard,
-} from "../pages";
+} from "./pages";
 
 const App = () => {
   return (
@@ -26,9 +26,9 @@ const App = () => {
           <Route
             path='dashboard'
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <Dashboard />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
         </Route>

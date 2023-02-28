@@ -138,22 +138,20 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100vh;
   max-width: var(--max-width);
-  /* padding-bottom: 5rem; */
-  /* margin: 45px auto; */
   background: var(--clr-white);
   border-radius: var(--radius);
   padding: 2rem;
   opacity: 1;
-  height: 100vh;
-
+  
   form {
     width: 100%;
   }
-
+  
   @media screen and (min-width: 575px) {
-    margin: 0px auto;
-    max-width: 400px;
+    margin: 0 auto;
+    max-width:500px;
   }
 `;
 
@@ -171,15 +169,17 @@ const Input = styled.input`
   flex: 1;
   border: none;
   border-bottom: 1px solid #adacac;
-  padding-bottom: 8px;
+  padding-bottom: 5px;
   margin-bottom: 25px;
   outline: none;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
 
   &::placeholder {
     color: #adacac;
     text-transform: capitalize;
     letter-spacing: var(--spacing);
+  font-size: 0.8rem;
+
   }
 `;
 
@@ -194,9 +194,9 @@ const Text = styled.h2`
   font-size: 28px;
   font-weight: 600;
   color: #333;
-  margin-top: 1.5rem;
-  margin-bottom: 30px;
-  align-self: flex-start;
+  margin-top: 2rem;
+  margin-bottom: 20px;
+  /* align-self: flex-start; */
 `;
 const StyledLink = styled(Link)`
   color: #ad40af;
@@ -206,7 +206,7 @@ const StyledLink = styled(Link)`
 const Paragraph = styled.p`
   color: #091322;
   opacity: 0.7;
-  margin: 0px;
+  margin: 0;
 `;
 
 const Button = styled.button`
