@@ -38,6 +38,22 @@ const Container = styled.div`
     width: 150px;
     /* align-self: center; */
   }
+
+  a {
+    display: block;
+    color: #f3f3f3;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-bottom: 16px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @media screen and (min-width: 650px) {
+      display: none;
+    }
+  }
 `;
 
 export default SideContainer;
