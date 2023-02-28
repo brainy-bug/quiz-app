@@ -96,6 +96,7 @@ const Button = styled(Link)`
   color: #f3f3f3;
   font-size: 2rem;
   cursor: pointer;
+  margin-bottom:16px;
 
   &:hover {
     opacity: 0.7;
