@@ -1,7 +1,14 @@
 // import components
-import PasswordInput from "../PasswordInput";
-import EmailInput from "../EmailInput";
-import { FormButton, FormContainer, FormFooter, FormHeading } from "../Form";
+import { GrMail } from "react-icons/gr";
+import { IoMdLock } from "react-icons/io";
+
+import {
+  FormButton,
+  FormContainer,
+  FormFooter,
+  FormInput,
+  FormHeading,
+} from "../Form";
 
 import { useAuth } from "../../hooks/useAuth";
 
@@ -9,7 +16,7 @@ import { useAuth } from "../../hooks/useAuth";
 import LoginSVG from "../../assets/misc/login.svg";
 
 const LoginContainer = () => {
-  const { handleLogin, email, password } = useAuth();
+  const { handleLogin, email, password, setPassword, setEmail } = useAuth();
   // const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -22,8 +29,20 @@ const LoginContainer = () => {
     <FormContainer>
       <FormHeading LoginSVG={LoginSVG} />
       <form>
-        <EmailInput />
-        <PasswordInput />
+        <FormInput
+          text='email'
+          value={email}
+          setValue={setEmail}
+          icon={<GrMail />}
+          placeholderText='Email Address'
+        />
+        <FormInput
+          text='password'
+          value={password}
+          setValue={setPassword}
+          icon={<IoMdLock />}
+          placeholderText='password'
+        />
         <FormButton handleSubmit={handleSubmit}>continue</FormButton>
       </form>
       <FormFooter

@@ -9,9 +9,9 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100vh;
   max-width: var(--max-width);
-  margin: 0px auto;
+  margin: 42px auto;
+  /* padding-bottom: 5rem; */
   background: var(--clr-white);
   border-radius: var(--radius);
   padding: 2rem;
@@ -20,9 +20,10 @@ const Container = styled.div`
   form {
     width: 100%;
   }
-  
+
   @media screen and (min-width: 575px) {
     max-width: 400px;
+    height: 100vh;
   }
 `;
 

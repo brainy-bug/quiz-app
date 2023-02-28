@@ -1,10 +1,15 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import ScrollToTop from "../../components/ScrollToTop";
+
 import LoginContainer from "../../components/Containers/LoginContainer";
 import SideContainer from "../../components/Containers/SideContainer";
 
 const Login = () => {
   return (
     <Container>
+      <ScrollToTop />
       <SideContainer />
       <LoginContainer />
     </Container>

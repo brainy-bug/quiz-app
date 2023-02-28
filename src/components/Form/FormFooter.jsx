@@ -19,6 +19,7 @@ const StyledLink = styled(Link)`
 const Paragraph = styled.p`
   color: #091322;
   opacity: 0.7;
-`;
+  margin: 0px;
+`
 
 export default FormFooter;
