@@ -1,19 +1,14 @@
-import { useNavigate } from "react-router";
-import { useGlobalContext } from "../../context/context";
-import { Modal, Loader } from "../../components";
+import Loader from "../../components/Loader";
+import Modal from "../../components/Modal";
+
+import { useQuizContext } from "../../hooks/useQuizContext";
+
+import "./quiz-page.css";
 
 const Quiz = () => {
-  const {
-    isWaiting,
-    isLoading,
-    questions,
-    index,
-    correct,
-    nextQuestion,
-    checkAnswer,
-  } = useGlobalContext();
+  const { isLoading, questions, index, correct, nextQuestion, checkAnswer } =
+    useQuizContext();
 
-  if (isWaiting) navigate("/");
   if (isLoading) return <Loader />;
 
   const { question, incorrect_answers, correct_answer } = questions[index];
@@ -21,7 +16,7 @@ const Quiz = () => {
 
   return (
     <main>
-      <Modal />
+      <Modal navigate={navigate} />
       <section className='quiz'>
         <p className='correct-answers'>
           correct answers : {correct}/{index}

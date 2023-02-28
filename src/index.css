@@ -63,7 +63,6 @@ body {
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
-  background-color: var(--clr-grey-4);
 }
 
 ul {
@@ -127,6 +126,7 @@ p {
   width: 90vw;
   margin: 0 auto;
   max-width: var(--max-width);
+
 }
 
 @media screen and (min-width: 992px) {
@@ -142,7 +142,7 @@ Quiz
 */
 
 main {
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -214,7 +214,7 @@ main {
   font-weight: 700;
   letter-spacing: var(--spacing);
   font-size: 1rem;
-  background: #c98d02;
+  background: #cd4ccf;
   color: var(--clr-white);
   transition: var(--transition);
   cursor: pointer;
@@ -222,7 +222,7 @@ main {
 .next-question:hover,
 .close-btn:hover,
 .submit-btn:hover {
-  background: #ffb100;
+  background: #AD40AF;
   color: var(--clr-black);
 }
 /*

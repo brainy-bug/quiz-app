@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import { useContext, createContext, useReducer } from "react";
 import axios from "axios";
 import {
   SET_WAITING,
@@ -9,13 +9,8 @@ import {
   SET_CORRECT,
   SET_QUIZ,
   CLOSE_MODAL,
-  RESET,
 } from "../utils/actions";
 import reducer from "../utils/reducer";
-
-import { table } from "../data/data";
-
-const API_ENDPOINT = "https://opentdb.com/api.php?";
 
 const initialState = {
   isWaiting: true,
@@ -29,16 +24,19 @@ const initialState = {
   },
   quiz: {
     amount: 5,
-    category: "any category",
-    difficulty: "any dificulty",
+    category: "select category",
+    difficulty: "select difficulty",
   },
   isModalOpen: false,
 };
 
-const AppContext = React.createContext();
+const QuizContext = createContext();
 
-const AppProvider = ({ children }) => {
+const QuizProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleError = (response) =>
+    dispatch({ type: SET_ERROR, payload: response });
 
   const fetchQuestions = async (url) => {
     dispatch({ type: SET_WAITING, payload: false });
@@ -51,12 +49,10 @@ const AppProvider = ({ children }) => {
         dispatch({ type: SET_WAITING, payload: false });
       } else {
         dispatch({ type: SET_WAITING, payload: true });
-        dispatch({
-          type: SET_ERROR,
-          payload: "can't generate questions, please try different options",
-        });
+        handleError("can't generate questions, please try different options");
       }
     } else {
+      
       dispatch({ type: SET_WAITING, payload: true });
     }
   };
@@ -66,9 +62,7 @@ const AppProvider = ({ children }) => {
   const checkAnswer = (value) =>
     dispatch({ type: SET_CORRECT, payload: value });
 
-  const closeModal = () => {
-    dispatch({ type: CLOSE_MODAL });
-  };
+  const closeModal = () => dispatch({ type: CLOSE_MODAL });
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -76,38 +70,21 @@ const AppProvider = ({ children }) => {
     dispatch({ type: SET_QUIZ, payload: { name, value } });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const { amount, category, difficulty } = state.quiz;
-    if (category === "any category" || difficulty === "any difficulty") {
-      dispatch({ type: SET_ERROR, payload: "all fields are required" });
-      return;
-    } else {
-      const url = `${API_ENDPOINT}&amount=${amount}&category=${table[category]}&difficulty=${difficulty}&type=multiple`;
-      dispatch({ type: RESET });
-      fetchQuestions(url);
-      
-    }
-  };
-
   return (
-    <AppContext.Provider
+    <QuizContext.Provider
       value={{
         ...state,
+        handleError,
+        fetchQuestions,
         nextQuestion,
         checkAnswer,
         closeModal,
         handleChange,
-        handleSubmit,
       }}
     >
       {children}
-    </AppContext.Provider>
+    </QuizContext.Provider>
   );
 };
-// make sure use
-export const useGlobalContext = () => {
-  return useContext(AppContext);
-};
 
-export { AppContext, AppProvider };
+export { QuizProvider, QuizContext,  };

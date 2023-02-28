@@ -1,5 +1,5 @@
 export const categoryOptions = [
-  "any category",
+  "select category",
   "sports",
   "history",
   "politics",
@@ -15,7 +15,7 @@ export const categoryOptions = [
   "celebrities",
 ];
 
-export const diffOptions = ["any difficulty", "easy", "medium", "hard"];
+export const diffOptions = ["select difficulty", "easy", "medium", "hard"];
 
 export const table = {
   sports: 21,

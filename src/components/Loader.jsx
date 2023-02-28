@@ -1,6 +1,6 @@
 import { ThreeDots } from "react-loader-spinner";
 
-const Loading = () => {
+const Loader = () => {
   return (
     <main>
       <ThreeDots
@@ -17,4 +17,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default Loader;

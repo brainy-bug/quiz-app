@@ -1,15 +1,18 @@
-import { useGlobalContext } from "../../context/context";
-import congratsIcon from "../../assets/congrats-icon.png";
-import angryIcon from "../../assets/angry-icon.png";
+import { useQuizContext } from "../hooks/useQuizContext";
+import congratsIcon from "../assets/congrats-icon.png";
+import angryIcon from "../assets/angry-icon.png";
 
-const Modal = () => {
-  const { isModalOpen, closeModal, correct, questions,setCorrect } = useGlobalContext();
-
+const Modal = ({ navigate }) => {
+  const { isModalOpen, closeModal, correct, questions } = useQuizContext();
   const percent = ((correct / questions.length) * 100).toFixed(0);
-
   const iconURL = () => {
     if (percent < 45) return angryIcon;
     return congratsIcon;
+  };
+
+  const handleCloseModal = () => {
+    closeModal();
+    navigate("/");
   };
 
   return (
@@ -23,7 +26,7 @@ const Modal = () => {
         <h2>{percent < 45 ? "failed!" : "congrats!"}</h2>
         {percent < 45 && <p>WHAT DO YOU KNOW?</p>}
         <p>You answered {percent}% of questions correctly</p>
-        <button className='close-btn' onClick={closeModal}>
+        <button className='close-btn' onClick={handleCloseModal}>
           play again
         </button>
       </div>

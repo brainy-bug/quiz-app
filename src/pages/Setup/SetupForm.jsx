@@ -1,9 +1,27 @@
-import { Link } from "react-router-dom";
-import { useGlobalContext } from "../../context/context";
-import { categoryOptions, diffOptions } from "../../data/data";
+import { useNavigate } from "react-router-dom";
+import { FormButton } from "../../components/Form";
+import { useQuizContext } from "../../hooks/useQuizContext";
+import { categoryOptions, diffOptions, table } from "../../data/data";
+
+const API_ENDPOINT = "https://opentdb.com/api.php?";
 
 const SetupForm = () => {
-  const { quiz, handleChange, handleSubmit, error } = useGlobalContext();
+  const navigate = useNavigate();
+  const { quiz, handleChange, error, handleError, fetchQuestions } =
+    useQuizContext();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { amount, category, difficulty } = quiz;
+    if (category === "select category" || difficulty === "select difficulty") {
+      handleError("all fields are required");
+      return;
+    } else {
+      const url = `${API_ENDPOINT}&amount=${amount}&category=${table[category]}&difficulty=${difficulty}&type=multiple`;
+      fetchQuestions(url);
+      navigate("/quiz");
+    }
+  };
 
   return (
     <main>
@@ -64,11 +82,7 @@ const SetupForm = () => {
             </select>
           </div>
           {error.bool && <p className='error'>{error.response}</p>}
-          <Link to='/quiz'>
-            <button type='submit' className='submit-btn'>
-              start
-            </button>
-          </Link>
+          <FormButton handleSubmit={handleSubmit}>start</FormButton>
         </form>
       </section>
     </main>

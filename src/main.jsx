@@ -1,9 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
+// Styles
 import "./index.css";
-import { App } from "./components";
-// import App from "./App";
-import { AppProvider } from "./context/context";
+
+// Components
+import App  from "./components/App";
+
+// AppProvider
+import AppProvider from "./utils/AppProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

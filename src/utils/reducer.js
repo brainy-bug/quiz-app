@@ -61,19 +61,13 @@ const reducer = (state, action) => {
       };
 
     case CLOSE_MODAL:
-      return { ...state, isModalOpen: false, isWaiting: true };
-
-    case RESET:
-      return {
-        ...state,
-        correct: 0,
-        error: false,
+      return { ...state, isModalOpen: false, isWaiting: true,correct: 0,error: false,
         quiz: {
           ...quiz,
-          category: "any category",
-          difficulty: "any dificulty",
-        },
-      };
+          category: "select category",
+          difficulty: "select dificulty",
+        }, };
+
 
     default:
       throw new Error(`no matching "${action.type} action`);
