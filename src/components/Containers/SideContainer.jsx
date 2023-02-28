@@ -37,7 +37,7 @@ const Container = styled.div`
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #1427447f;
+    background-color: #14274457;
     z-index: -1;
   }
   position: relative;

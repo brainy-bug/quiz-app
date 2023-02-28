@@ -6,6 +6,7 @@ export const FormProvider = ({ children }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const contextValue = {
     email,
@@ -14,7 +15,7 @@ export const FormProvider = ({ children }) => {
     setPassword,
     name,
     setName,
-    
+    confirmPassword, setConfirmPassword
   };
 
   return (

@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 // import icons
 import { IoMdPerson, IoMdLock } from "react-icons/io";
+import { MdOutlinePassword } from "react-icons/md";
 
 import { GrMail } from "react-icons/gr";
 
@@ -26,6 +27,8 @@ const RegisterContainer = () => {
   const {
     email,
     password,
+    confrimPassword,
+    setConfrimPassword,
     handleSignup,
     setPassword,
     name,
@@ -67,14 +70,14 @@ const RegisterContainer = () => {
           placeholderText='password'
         />
         <FormInput
-          text='confrimPassword'
-          value={password}
-          setValue={setPassword}
-          icon={<IoMdLock />}
+          text='password'
+          value={confrimPassword}
+          setValue={setConfrimPassword}
+          icon={<MdOutlinePassword />}
           placeholderText='confirm password'
         />
         <RadioContainer>
-          <Text>What are you?</Text>
+          <Text>I am a:</Text>
           <div>
             <RadioInput type='radio' id='teacher' name='role' value='teacher' />
             <Label htmlFor='teacher'>Teacher</Label>
