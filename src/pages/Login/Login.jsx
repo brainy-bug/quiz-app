@@ -9,7 +9,7 @@ import SideContainer from "../../components/Containers/SideContainer";
 const Login = () => {
   return (
     <Container>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <SideContainer />
       <LoginContainer />
     </Container>

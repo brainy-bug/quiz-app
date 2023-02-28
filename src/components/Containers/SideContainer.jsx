@@ -22,7 +22,7 @@ const SideContainer = () => {
         <span style={{ color: "#00bbd4" }}>track your scores</span>, and{" "}
         <span style={{ color: "#d4a200" }}>compete with others.</span>
       </Text>
-      <Button to='loginHeading' smooth={true} duration={500}>
+      <Button to='section2' smooth={true} duration={500}>
         <FaArrowCircleDown />
       </Button>
     </Container>

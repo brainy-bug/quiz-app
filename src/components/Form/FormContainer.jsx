@@ -10,7 +10,7 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   max-width: var(--max-width);
-  margin: 42px auto;
+  margin: 45px auto;
   /* padding-bottom: 5rem; */
   background: var(--clr-white);
   border-radius: var(--radius);
