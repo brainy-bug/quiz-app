@@ -142,10 +142,17 @@ Quiz
 */
 
 main {
-  min-height: 70vh;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #091322;
+}
+
+img{
+  height:80px;
+  width:100px;
 }
 
 .quiz {

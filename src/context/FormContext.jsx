@@ -15,7 +15,8 @@ export const FormProvider = ({ children }) => {
     setPassword,
     name,
     setName,
-    confirmPassword, setConfirmPassword
+    confirmPassword,
+    setConfirmPassword,
   };
 
   return (

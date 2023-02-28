@@ -6,11 +6,12 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   // console.log(children);
   const [user, setUser] = useState(null);
+  const [isRegistered, setIsRegistered] = useState(false);
 
   // handle user login
   const handleLogin = (email, password) => {
     // make an API call to authenticate the user
-    
+
     // if successful, update the user state
     setUser({ email });
   };
@@ -40,6 +41,8 @@ export const AuthProvider = ({ children }) => {
     handleSignup,
     handleLogout,
     handleGoogleLogin,
+    isRegistered,
+    setIsRegistered,
   };
 
   // return the provider with the context value and the App component

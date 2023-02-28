@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { FormButton } from "../components/Form";
+// import { FormButton } from "../components/Form";
 import { useQuizContext } from "../hooks/useQuizContext";
 import { categoryOptions, diffOptions, table } from "../data/data";
 
@@ -82,7 +82,7 @@ const SetupForm = () => {
             </select>
           </div>
           {error.bool && <p className='error'>{error.response}</p>}
-          <FormButton handleSubmit={handleSubmit}>start</FormButton>
+          {/* <FormButton handleSubmit={handleSubmit}>start</FormButton> */}
         </form>
       </section>
     </main>

@@ -1,27 +1,49 @@
-import styled from "styled-components";
-import ScrollToTop from "../components/ScrollToTop";
+import { useEffect, useState } from "react";
+
 import { FaArrowCircleDown } from "react-icons/fa";
 import { Link } from "react-scroll";
 
+import styled from "styled-components";
+import ScrollToTop from "../components/ScrollToTop";
+import Loader from "../components/Loader";
+import LoginRegisterContainer from "../components/LoginRegisterContainer";
+import SideContainer from "../components/SideContainer";
+
 import waveIcon from "../assets/wave-icon.png";
-import LoginContainer from "../components/Containers/LoginContainer";
-import SideContainer from "../components/Containers/SideContainer";
+
+import { useAuth } from "../hooks/useAuth";
 
 const Login = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const { setIsRegistered } = useAuth();
+
+  useEffect(() => {
+    setIsRegistered(true);
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <Container>
       <ScrollToTop />
       <SideContainer>
         <img src={waveIcon} alt='quiz-icon' />
         <Heading>Welcome back</Heading>
-        <Text>
-          Kick off from where you left.
-        </Text>
+        <Text>Kick off from where you left.</Text>
         <Link to='section2' smooth={true} duration={500}>
           <FaArrowCircleDown />
         </Link>
       </SideContainer>
-      <LoginContainer />
+      <LoginRegisterContainer />
     </Container>
   );
 };

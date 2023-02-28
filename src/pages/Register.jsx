@@ -1,12 +1,37 @@
-import styled from "styled-components";
-import RegisterContainer from "../components/Containers/RegisterContainer";
-import SideContainer from "../components/Containers/SideContainer";
-import ScrollToTop from "../components/ScrollToTop";
+import { useEffect, useState } from "react";
 import { FaArrowCircleDown } from "react-icons/fa";
 import { Link } from "react-scroll";
 
+import styled from "styled-components";
+import Loader from "../components/Loader";
+import LoginRegisterContainer from "../components/LoginRegisterContainer";
+import SideContainer from "../components/SideContainer";
+import ScrollToTop from "../components/ScrollToTop";
+
 import quizIcon from "../assets/quiz-icon.png";
+
+import { useAuth } from "../hooks/useAuth";
+
 const Register = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const { setIsRegistered } = useAuth();
+
+  useEffect(() => {
+    setIsRegistered(false);
+
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <Container>
       <ScrollToTop />
@@ -27,7 +52,7 @@ const Register = () => {
           <FaArrowCircleDown />
         </Link>
       </SideContainer>
-      <RegisterContainer />
+      <LoginRegisterContainer />
     </Container>
   );
 };
@@ -62,6 +87,5 @@ const Text = styled.p`
     font-size: 1.5rem;
   }
 `;
-
 
 export default Register;

@@ -15,8 +15,6 @@ import {
 } from "../pages";
 
 const App = () => {
-
-
   return (
     <BrowserRouter>
       <Routes>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import coverImage from "../../assets/bg-cover.jpeg";
+import coverImage from "../assets/bg-cover.jpeg";
 
 const SideContainer = ({children}) => {
   return <Container>{children}</Container>;
