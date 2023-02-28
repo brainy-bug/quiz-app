@@ -17,7 +17,6 @@ const Login = () => {
         <Text>
           Kick off from where you left.
         </Text>
-
         <Link to='section2' smooth={true} duration={500}>
           <FaArrowCircleDown />
         </Link>
