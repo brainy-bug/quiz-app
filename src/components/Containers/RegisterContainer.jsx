@@ -77,7 +77,7 @@ const RegisterContainer = () => {
           placeholderText='confirm password'
         />
         <RadioContainer>
-          <Text>I am a:</Text>
+          <Text>Current role in education:</Text>
           <div>
             <RadioInput type='radio' id='teacher' name='role' value='teacher' />
             <Label htmlFor='teacher'>Teacher</Label>
