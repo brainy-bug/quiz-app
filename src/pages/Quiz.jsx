@@ -1,9 +1,9 @@
-import Loader from "../../components/Loader";
-import Modal from "../../components/Modal";
+import Loader from "../components/Loader";
+import Modal from "../components/Modal";
 
-import { useQuizContext } from "../../hooks/useQuizContext";
+import { useQuizContext } from "../hooks/useQuizContext";
 
-import "./quiz-page.css";
+// import "./quiz-page.css";
 
 const Quiz = () => {
   const { isLoading, questions, index, correct, nextQuestion, checkAnswer } =

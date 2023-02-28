@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import RegisterContainer from "../../components/Containers/RegisterContainer";
-import SideContainer from "../../components/Containers/SideContainer";
-import ScrollToTop from "../../components/ScrollToTop";
+import RegisterContainer from "../components/Containers/RegisterContainer";
+import SideContainer from "../components/Containers/SideContainer";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Register = () => {
   return (
