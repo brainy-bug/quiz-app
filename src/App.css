@@ -24,3 +24,8 @@ li {
   margin: 0;
   padding: 0;
 }
+
+.error {
+  color: var(--clr-red-dark);
+  text-transform: capitalize;
+}

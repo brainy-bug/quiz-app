@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { FaArrowCircleDown } from "react-icons/fa";
 import { Link } from "react-scroll";
 
@@ -11,21 +11,16 @@ import ScrollToTop from "../components/ScrollToTop";
 import quizIcon from "../assets/quiz-icon.png";
 
 import { useAuth } from "../hooks/useAuth";
+import { usePageContext } from "../hooks/usePageContext";
 
 const Register = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const { isLoading, handlePageLoad } = usePageContext();
+
   const { setIsRegistered } = useAuth();
 
   useEffect(() => {
     setIsRegistered(false);
-
-    const timeoutId = setTimeout(() => {
-      setIsLoading(false);
-    }, 800);
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
+    handlePageLoad();
   }, []);
 
   if (isLoading) {

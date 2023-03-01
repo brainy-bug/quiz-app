@@ -1,12 +1,15 @@
 import { AuthProvider } from "../context/AuthContext";
-import { QuizProvider } from "../context/QuizContext";
 import { FormProvider } from "../context/FormContext";
+import { PageProvider } from "../context/PageContext";
+import { QuizProvider } from "../context/QuizContext";
 
 const AppProvider = ({ children }) => {
   return (
     <AuthProvider>
       <FormProvider>
-        <QuizProvider>{children}</QuizProvider>
+        <PageProvider>
+          <QuizProvider>{children}</QuizProvider>
+        </PageProvider>
       </FormProvider>
     </AuthProvider>
   );

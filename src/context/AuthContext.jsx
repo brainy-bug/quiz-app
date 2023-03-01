@@ -1,10 +1,8 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useMemo } from "react";
 
-// create a new context
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  // console.log(children);
   const [user, setUser] = useState(null);
   const [isRegistered, setIsRegistered] = useState(false);
 
@@ -32,18 +30,18 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
-  const handleGoogleLogin = () => {};
-
   // define the context value
-  const contextValue = {
-    user,
-    handleLogin,
-    handleSignup,
-    handleLogout,
-    handleGoogleLogin,
-    isRegistered,
-    setIsRegistered,
-  };
+  const contextValue = useMemo(
+    () => ({
+      user,
+      handleLogin,
+      handleSignup,
+      handleLogout,
+      isRegistered,
+      setIsRegistered,
+    }),
+    [isRegistered]
+  );
 
   // return the provider with the context value and the App component
   return (
