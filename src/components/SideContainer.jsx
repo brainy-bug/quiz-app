@@ -1,12 +1,34 @@
+import { Link } from "react-scroll";
+import { FaArrowCircleDown } from "react-icons/fa";
+
 import styled from "styled-components";
 
 import coverImage from "../assets/bg-cover.jpeg";
+import quizIcon from "../assets/quiz-icon.png";
 
-const SideContainer = ({children}) => {
-  return <Container>{children}</Container>;
+const SideContainer = ({ children }) => {
+  return (
+    <Container>
+      <img src={quizIcon} alt='quiz-icon' />
+      {children}
+      <Link to='form-container' smooth={true} duration={500}>
+        <FaArrowCircleDown />
+      </Link>
+    </Container>
+  );
 };
 
 const Container = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 1;
+
   &::before {
     content: "";
     position: absolute;
@@ -14,29 +36,18 @@ const Container = styled.div`
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #14274457;
+    background-color: rgba(20, 39, 68, 0.34);
     z-index: -1;
   }
-  position: relative;
-  width: 100%;
-  height: 100vh;
 
   background-color: #091322;
   background-image: url(${coverImage});
+  background-position: no-repeat;
   background-size: cover;
-  background-repeat: no-repeat;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  z-index: 1;
 
   img {
     height: 130px;
     width: 150px;
-    /* align-self: center; */
   }
 
   a {
@@ -55,5 +66,6 @@ const Container = styled.div`
     }
   }
 `;
+
 
 export default SideContainer;

@@ -1,26 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-import { FaArrowCircleDown } from "react-icons/fa";
-import { Link } from "react-scroll";
-
+// components
 import styled from "styled-components";
 import ScrollToTop from "../components/ScrollToTop";
 import Loader from "../components/Loader";
-import LoginRegisterContainer from "../components/LoginRegisterContainer";
 import SideContainer from "../components/SideContainer";
-
-import quizIcon from "../assets/quiz-icon.png";
+import LoginForm from "../components/LoginForm";
 
 // hooks
-import { useAuth } from "../hooks/useAuth";
-import { usePageContext } from "../hooks/usePageContext";
+import { useLoading } from "../hooks/useLoading";
 
 const Login = () => {
-  const {isLoading, handlePageLoad} = usePageContext();
-  const { setIsRegistered } = useAuth();
+  const { isLoading, handlePageLoad } = useLoading();
 
   useEffect(() => {
-    setIsRegistered(true);
     handlePageLoad();
   }, []);
 
@@ -32,18 +25,13 @@ const Login = () => {
     <Container>
       <ScrollToTop />
       <SideContainer>
-        <img src={quizIcon} alt='quiz-icon' />
-
         <Heading>Yello👋, Welcome back!</Heading>
         <Text>
           Test your knowledge on a variety of topics from history to pop
           culture.
         </Text>
-        <Link to='section2' smooth={true} duration={500}>
-          <FaArrowCircleDown />
-        </Link>
       </SideContainer>
-      <LoginRegisterContainer />
+      <LoginForm />
     </Container>
   );
 };

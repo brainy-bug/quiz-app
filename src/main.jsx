@@ -5,10 +5,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 // Components
-import App  from "./App";
+import App from "./App";
 
 // AppProvider
-import AppProvider from "./utils/AppProvider";
+import AppProvider from "./context/AppProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

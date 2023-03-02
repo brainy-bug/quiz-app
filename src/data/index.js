@@ -32,3 +32,16 @@ export const table = {
   "science: computers": 18,
   celebrities: 26,
 };
+
+export const LoginErrors = {
+  email: {
+    msg: `Sorry, we can't find an account with this email address.`,
+    route: "/register",
+    text: "create a new account",
+  },
+  password: {
+    msg: `Incorrect password `,
+    route: "#",
+    text: "reset your password.",
+  },
+};

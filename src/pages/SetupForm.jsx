@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 // import { FormButton } from "../components/Form";
 import { useQuizContext } from "../hooks/useQuizContext";
-import { categoryOptions, diffOptions, table } from "../data/data";
+import { categoryOptions, diffOptions, table } from "../data";
 
 const API_ENDPOINT = "https://opentdb.com/api.php?";
 

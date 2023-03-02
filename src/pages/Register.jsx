@@ -1,25 +1,19 @@
 import { useEffect } from "react";
-import { FaArrowCircleDown } from "react-icons/fa";
-import { Link } from "react-scroll";
 
+// components
 import styled from "styled-components";
 import Loader from "../components/Loader";
-import LoginRegisterContainer from "../components/LoginRegisterContainer";
+import RegisterForm from "../components/RegisterForm";
 import SideContainer from "../components/SideContainer";
 import ScrollToTop from "../components/ScrollToTop";
 
-import quizIcon from "../assets/quiz-icon.png";
-
-import { useAuth } from "../hooks/useAuth";
-import { usePageContext } from "../hooks/usePageContext";
+// hooks
+import { useLoading } from "../hooks/useLoading";
 
 const Register = () => {
-  const { isLoading, handlePageLoad } = usePageContext();
-
-  const { setIsRegistered } = useAuth();
+  const { isLoading, handlePageLoad } = useLoading();
 
   useEffect(() => {
-    setIsRegistered(false);
     handlePageLoad();
   }, []);
 
@@ -28,11 +22,12 @@ const Register = () => {
   }
 
   return (
-    <Container>
+    <Container className=''>
       <ScrollToTop />
       <SideContainer>
-        <img src={quizIcon} alt='quiz-icon' />
-        <Heading>Welcome to our quiz app</Heading>
+        <Heading>
+          Welcome to our <span> quiz app</span>
+        </Heading>
         <Text>
           Test your knowledge on a variety of topics from history to pop
           culture.
@@ -43,11 +38,8 @@ const Register = () => {
           <span style={{ color: "#00bbd4" }}>track your scores</span>, and{" "}
           <span style={{ color: "#d4a200" }}>compete with others.</span>
         </Text>
-        <Link to='section2' smooth={true} duration={500}>
-          <FaArrowCircleDown />
-        </Link>
       </SideContainer>
-      <LoginRegisterContainer />
+      <RegisterForm />
     </Container>
   );
 };
@@ -55,20 +47,23 @@ const Register = () => {
 const Container = styled.section`
   display: grid;
 
-  @media screen and (min-width: 680px) {
-    grid-template-columns: 1.2fr 1fr;
+  @media screen and (min-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
 const Heading = styled.h2`
   color: #f3f3f3;
-  font-size: 1.8rem;
-  padding: 0rem 1rem;
+  font-size: 2rem;
+  padding: 0rem 2rem;
   text-transform: uppercase;
   text-align: center;
+  @media screen and (min-width: 1080px) {
+    font-size: 2.3rem;
+  }
 
-  @media screen and (min-width: 800px) {
-    font-size: 2rem;
+  @media screen and (min-width: 680px) and (max-width: 901px) {
+    font-size: 2.6rem;
   }
 `;
 
@@ -76,6 +71,7 @@ const Text = styled.p`
   color: #f3f3f3;
   padding: 0rem 1rem;
   font-size: 1.3rem;
+  text-align: center;
 
   @media screen and (min-width: 680px) {
     padding: 0rem 3rem;
