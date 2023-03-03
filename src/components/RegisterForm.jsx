@@ -100,7 +100,7 @@ const RegisterForm = () => {
           ))}
         </RadioContainer>
         <Button className='submit-btn'>
-          <CgSpinner />
+          {/* <CgSpinner /> */}
           Get Started
         </Button>
         <FormFooter
