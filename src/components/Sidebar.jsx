@@ -12,11 +12,6 @@ import AvatarImage from "../assets/user-profile.jpg";
 import { darkThemeColor } from "../utils/colors";
 
 const Sidebar = () => {
-
-
-
-
-  
   return (
     <Container>
       <ProfileContainer>
@@ -42,14 +37,7 @@ const Sidebar = () => {
             <h2>Reports</h2>
           </Link>
         </Links>
-        <ContactContainer>
-          <span>
-            Frontend: <a href='#'>Yinka</a>
-          </span>
-          <span>
-            Backend: <a href='#'>AbdulSamad</a>
-          </span>
-        </ContactContainer>
+        <LogOutContainer>Logout</LogOutContainer>
       </LinksContainer>
     </Container>
   );
@@ -65,11 +53,10 @@ const Container = styled.div`
   align-items: center;
   gap: 3rem;
 
-
   p {
     color: white;
   }
-  
+
   @media screen and (min-width: 320px) and (max-width: 1080px) {
     width: 100%;
     height: max-content !important;
@@ -130,7 +117,7 @@ const Link = styled.li`
   }
 `;
 
-const ContactContainer = styled.div`
+const LogOutContainer = styled.div`
   width: 80%;
   background-color: #091322;
   color: #afabab;
