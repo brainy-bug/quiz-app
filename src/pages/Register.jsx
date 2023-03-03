@@ -96,6 +96,7 @@ const Footer = styled.p`
   margin-bottom: 1rem;
   font-size: 1.2rem;
   font-style: italic;
+  font-weight: 200;
   line-height: 1.3;
   text-align: center;
 `;
