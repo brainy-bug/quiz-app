@@ -92,12 +92,6 @@ li {
 
 
 
-/*
-=============== 
-Quiz
-===============
-*/
-
 main {
   min-height: 100vh;
   display: flex;
@@ -123,48 +117,11 @@ main {
  
 }
 
-.section .desc{
-  margin-bottom: 1rem;
-}
-
 .section .heading h2{
 font-size: 2rem;
   line-height: 1.2;
    margin-bottom: 1.8rem;
 }
-
-.section .desc p{
-  color: #f3f3f3;
-  padding: 0rem 1rem;
-  margin-bottom: 2rem;
-  font-size: 1.3rem;
-  line-height: 1.2
-
-}
-.section .desc .footer{
-margin-top: 2rem;
-margin-bottom: 1rem;
-  font-size: 1.2rem;
-font-style: italic;
-  line-height: 1.3;
-  text-align: center;
-
-}
-.section .lists{
-  margin-bottom: 10px;
-  margin-left: 3.5rem;
-}
-
-.section .lists li{
-color: #c2c1c1;
-  font-size: 1.2rem;
-  line-height: 1.2;
-  font-weight: 100;
-  margin-bottom: 10px;
-}
-
-
-
 
 @media screen and (min-width: 900px) {
 .section{
@@ -183,11 +140,13 @@ color: #c2c1c1;
     font-size: 1.5rem;
   }
 }
-  @media screen and (min-width: 680px) and (max-width: 900px) {
-  .section .register .heading{
-    font-size: 2.5rem;
-  }
-}
+
+
+/*
+=============== 
+Quiz
+===============
+*/
 
 
 .quiz {

@@ -19,7 +19,7 @@ const Button = styled.button`
   font-size: 16px;
   text-transform: capitalize;
   background-color: var(--clr-primary-8);
-  font-weight: 100;
+  font-weight: 300;
 
   &:hover {
   background-color: var(--clr-primary-9);

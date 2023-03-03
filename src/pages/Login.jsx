@@ -22,7 +22,7 @@ const Login = () => {
   }
 
   return (
-    <section className='section login'>
+    <section className='section'>
       <ScrollToTop />
       <SideContainer>
         <div className='heading'>
@@ -33,8 +33,8 @@ const Login = () => {
           </h2>
         </div>
         <Text>
-          We're glad to see you again. Let's get started with some more
-          questions and see how you do this time around.
+          Let's get started with some more questions and see how you do this
+          time around.
         </Text>
       </SideContainer>
       <LoginForm />
@@ -48,7 +48,7 @@ const Text = styled.p`
   font-size: 1.4rem;
   text-align: center;
   line-height: 1.2;
-  font-weight: 100;
+  font-weight: 300;
 
   @media screen and (min-width: 680px) {
     padding: 0rem 3rem;
