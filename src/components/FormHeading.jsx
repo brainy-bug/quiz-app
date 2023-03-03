@@ -11,19 +11,19 @@ function FormHeading({ image, text }) {
 }
 
 const Image = styled.img`
-  height: 210px;
+  height: 160px;
   width: 210px;
   transform: rotate(-5deg);
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 `;
 
 const Text = styled.h2`
   font-family: "Roboto-Medium";
   font-size: 32px;
   margin-bottom: 28px;
+  margin-top: 10px;
   font-weight: 600;
   color: #333;
-  /* margin: 2.2rem auto; */
   text-transform: capitalize;
 `;
 

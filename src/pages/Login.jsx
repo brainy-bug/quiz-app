@@ -22,50 +22,37 @@ const Login = () => {
   }
 
   return (
-    <Container>
+    <section className='section login'>
       <ScrollToTop />
       <SideContainer>
-        <Heading>Yello👋, Welcome back!</Heading>
+        <div className='heading'>
+          <h2>Yello👋,</h2>
+          <h2>
+            Welcome back to our <span style={{ color: "#00bbd4" }}>quiz</span>{" "}
+            <span style={{ color: "#d4a200" }}>App</span>
+          </h2>
+        </div>
         <Text>
-          Test your knowledge on a variety of topics from history to pop
-          culture.
+          We're glad to see you again. Let's get started with some more
+          questions and see how you do this time around.
         </Text>
       </SideContainer>
       <LoginForm />
-    </Container>
+    </section>
   );
 };
 
-const Container = styled.section`
-  display: grid;
-  /* grid-template-columns: 1.2fr 1fr; */
-
-  @media screen and (min-width: 650px) {
-    grid-template-columns: 1.2fr 1fr;
-  }
-`;
-
-const Heading = styled.h2`
-  color: #f3f3f3;
-  font-size: 2rem;
-  padding: 0rem 1rem;
-  text-transform: uppercase;
-  text-align: center;
-
-  @media screen and (min-width: 800px) {
-    font-size: 2.5rem;
-  }
-`;
-
 const Text = styled.p`
-  color: #f3f3f3;
+  color: #c2c1c1;
   padding: 0rem 1rem;
   font-size: 1.4rem;
   text-align: center;
+  line-height: 1.2;
+  font-weight: 100;
 
   @media screen and (min-width: 680px) {
     padding: 0rem 3rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 `;
 

@@ -57,7 +57,7 @@ const RegisterForm = () => {
     <div id='form-container'>
       <FormHeading image={SignupSVG} text='Create Your Account' />
       {errorMessage && <Error>{errorMessage}</Error>}
-      <Form onSubmit={handleSubmit}>
+      <MainForm onSubmit={handleSubmit}>
         <div className='input-container'>
           <label htmlFor='text'>{<IoMdPerson />}</label>
           <input
@@ -108,12 +108,13 @@ const RegisterForm = () => {
           route='/login'
           routeText='Sign in'
         />
-      </Form>
+      </MainForm>
     </div>
   );
 };
 
-const Form = styled.form`
+// styled components
+const MainForm = styled.form`
   width: inherit;
   @media screen and (max-width: 680px) {
     /* Below 680px */
@@ -123,7 +124,6 @@ const Form = styled.form`
 
   @media screen and (min-width: 680px) and (max-width: 901px) {
     /* Between 680px and 900px */
-    width: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
@@ -132,7 +132,6 @@ const Form = styled.form`
 
   @media screen and (min-width: 1081px) {
     /* Above 1080px */
-    width: auto;
     display: grid;
     grid-template-columns: repeat(2, 1.3fr);
     grid-gap: 10px;
@@ -150,10 +149,10 @@ const Button = styled.button`
 
 const RadioContainer = styled.div`
   margin-right: 16px;
-  margin-bottom: 0px;
   grid-column: span 2;
 
   div {
+    display: flex;
     margin-bottom: 10px;
     color: #091322;
     opacity: 0.7;

@@ -20,7 +20,6 @@ const SideContainer = ({ children }) => {
 
 const Container = styled.div`
   position: relative;
-  width: 100%;
   height: 100vh;
   padding: 24px;
   display: flex;
@@ -48,6 +47,7 @@ const Container = styled.div`
   img {
     height: 130px;
     width: 150px;
+    margin-bottom: 24px;
   }
 
   a {
@@ -61,7 +61,7 @@ const Container = styled.div`
       opacity: 0.7;
     }
 
-    @media screen and (min-width: 650px) {
+    @media screen and (min-width: 900px) {
       display: none;
     }
   }

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 // components
 import styled from "styled-components";
@@ -22,64 +22,73 @@ const Register = () => {
   }
 
   return (
-    <main>
-
-    <Container className=''>
+    <section className='section register'>
       <ScrollToTop />
       <SideContainer>
-        <Heading>
-          Welcome to our <span> quiz app</span>
-        </Heading>
-        <Text>
-          Test your knowledge on a variety of topics from history to pop
-          culture.
-        </Text>
-        <Text>
-          Create an account to{" "}
-          <span style={{ color: "#ad40af" }}>save your progress</span>,{" "}
-          <span style={{ color: "#00bbd4" }}>track your scores</span>, and{" "}
-          <span style={{ color: "#d4a200" }}>compete with others.</span>
-        </Text>
+        <div className='heading'>
+          <h2>
+            Welcome to our <span style={{ color: "#00bbd4" }}>quiz</span>{" "}
+            <span style={{ color: "#d4a200" }}>App</span>
+          </h2>
+        </div>
+        <div className='desc'>
+          <p>
+            By creating an account on our quiz platform, you can:
+          </p>
+          <ul className='lists'>
+            <List>Put your knowledge to the tests compete with others.</List>
+            <List>Track your scores</List>
+            <List>Put your knowledge to the tests compete with others.</List>
+          </ul>
+          <p className="footer">
+            As a teacher, you can create your own quizzes to share with your
+            students and track their progress. {' '}
+            <span style={{ color: "#d4a200" }}>
+              Start exploring the world of quizzes!
+            </span>
+          </p>
+        </div>
       </SideContainer>
       <RegisterForm />
-    </Container>
-    </main>
+    </section>
   );
 };
 
-const Container = styled.section`
-  display: grid;
+// const Heading = styled.h2`
+//   color: #f3f3f3;
+//   font-size: 2rem;
+//   padding: 0rem 2rem;
+//   text-transform: uppercase;
+//   text-align: center;
+//   @media screen and (min-width: 1080px) {
+//     font-size: 2.3rem;
+//   }
 
-  @media screen and (min-width: 900px) {
-    grid-template-columns: 1fr 1.3fr;
-  }
-`;
-
-const Heading = styled.h2`
-  color: #f3f3f3;
-  font-size: 2rem;
-  padding: 0rem 2rem;
-  text-transform: uppercase;
-  text-align: center;
-  @media screen and (min-width: 1080px) {
-    font-size: 2.3rem;
-  }
-
-  @media screen and (min-width: 680px) and (max-width: 901px) {
-    font-size: 2.6rem;
-  }
-`;
+//   @media screen and (min-width: 680px) and (max-width: 900px) {
+//     font-size: 2.6rem;
+//   }
+// `;
 
 const Text = styled.p`
+  align-self: flex-start;
   color: #f3f3f3;
   padding: 0rem 1rem;
   font-size: 1.3rem;
-  text-align: center;
-
+  line-height: 1.2;
   @media screen and (min-width: 680px) {
-    padding: 0rem 3rem;
+    /* padding: 0rem 3rem; */
+    font-size: 1.5rem;
+  }
+  @media screen and (min-width: 900px) {
     font-size: 1.5rem;
   }
 `;
 
+const List = styled.li`
+  color: #c2c1c1;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  font-weight: 100;
+  margin-bottom: 10px;
+`;
 export default Register;
