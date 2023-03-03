@@ -31,9 +31,10 @@ const Container = styled.div`
   height: 100vh;
 
   p {
-    font-size: 16px;
+    font-size: 1.4rem;
     color: #f3f3f3;
     opacity: 0.7;
+    margin-bottom: 2rem;
   }
 
   img {
@@ -42,7 +43,9 @@ const Container = styled.div`
   }
 
   h2 {
-    margin-top: 1rem;
+    text-transform:uppercase;
+    font-size: 2rem;
+    margin: 1rem;
   }
 `;
 

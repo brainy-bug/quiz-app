@@ -71,6 +71,7 @@ const Heading = styled.h2`
   color: #fcf9f9;
   font-size: 2rem;
   line-height: 1.2;
+  margin-bottom: 1.5rem;
   @media screen and (min-width: 580px) {
     padding: 0rem 1rem;
     margin-bottom: 1.8rem;
@@ -86,7 +87,7 @@ const DescriptionContainer = styled.div`
 const SubHeading = styled.p`
   padding: 0rem 1rem;
   margin-bottom: 2rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 1.2;
 
   @media screen and (min-width: 900px) {
