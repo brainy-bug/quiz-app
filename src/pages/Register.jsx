@@ -48,7 +48,7 @@ const Container = styled.section`
   display: grid;
 
   @media screen and (min-width: 900px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1.3fr;
   }
 `;
 

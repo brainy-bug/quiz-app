@@ -114,7 +114,7 @@ const RegisterForm = () => {
 };
 
 const Form = styled.form`
-  width: 100%;
+  width: inherit;
   @media screen and (max-width: 680px) {
     /* Below 680px */
     display: flex;
@@ -123,6 +123,7 @@ const Form = styled.form`
 
   @media screen and (min-width: 680px) and (max-width: 901px) {
     /* Between 680px and 900px */
+    width: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
@@ -131,8 +132,9 @@ const Form = styled.form`
 
   @media screen and (min-width: 1081px) {
     /* Above 1080px */
+    width: auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1.3fr);
     grid-gap: 10px;
     grid-column-gap: 20px;
   }
