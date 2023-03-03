@@ -22,10 +22,10 @@ const Register = () => {
   }
 
   return (
-    <section className='section register'>
+    <section className='section'>
       <ScrollToTop />
       <SideContainer>
-        <HeadingContainer className='heading'>
+        <HeadingContainer>
           <h2>
             Welcome to our <span style={{ color: "#00bbd4" }}>quiz</span>{" "}
             <span style={{ color: "#d4a200" }}>App</span>
