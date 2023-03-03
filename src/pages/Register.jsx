@@ -32,20 +32,15 @@ const Register = () => {
           </h2>
         </div>
         <div className='desc'>
-          <p>
-            By creating an account on our quiz platform, you can:
-          </p>
+          <p>By creating an account on our quiz platform, you can:</p>
           <ul className='lists'>
-            <List>Put your knowledge to the tests compete with others.</List>
+            <List>Put your knowledge to tests and compete with others.</List>
             <List>Track your scores</List>
-            <List>Put your knowledge to the tests compete with others.</List>
           </ul>
-          <p className="footer">
+          <p className='footer'>
             As a teacher, you can create your own quizzes to share with your
-            students and track their progress. {' '}
-            <span style={{ color: "#d4a200" }}>
-              Start exploring the world of quizzes!
-            </span>
+            students and{' '}
+            <span style={{ color: "#d4a200" }}>track their progress.</span>
           </p>
         </div>
       </SideContainer>

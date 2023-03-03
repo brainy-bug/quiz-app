@@ -47,7 +47,7 @@ const Container = styled.div`
   img {
     height: 130px;
     width: 150px;
-    margin-bottom: 24px;
+    margin: 1rem auto;
   }
 
   a {

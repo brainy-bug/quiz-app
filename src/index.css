@@ -117,31 +117,37 @@ main {
 
 .section .heading{
    color: #fcf9f9;
- font-size: 1.5rem;
-  padding: 0rem 2rem;
-  text-transform: uppercase;
+   padding: 0rem 1rem;
+   text-transform: uppercase;
   text-align: center;
  
 }
 
+.section .desc{
+  margin-bottom: 1rem;
+}
+
 .section .heading h2{
+font-size: 2rem;
   line-height: 1.2;
-   margin-bottom: 3.2rem;
+   margin-bottom: 1.8rem;
 }
 
 .section .desc p{
   color: #f3f3f3;
   padding: 0rem 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   font-size: 1.3rem;
   line-height: 1.2
 
 }
 .section .desc .footer{
 margin-top: 2rem;
+margin-bottom: 1rem;
   font-size: 1.2rem;
 font-style: italic;
   line-height: 1.3;
+  text-align: center;
 
 }
 .section .lists{
