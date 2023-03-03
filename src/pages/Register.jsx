@@ -49,41 +49,4 @@ const Register = () => {
   );
 };
 
-// const Heading = styled.h2`
-//   color: #f3f3f3;
-//   font-size: 2rem;
-//   padding: 0rem 2rem;
-//   text-transform: uppercase;
-//   text-align: center;
-//   @media screen and (min-width: 1080px) {
-//     font-size: 2.3rem;
-//   }
-
-//   @media screen and (min-width: 680px) and (max-width: 900px) {
-//     font-size: 2.6rem;
-//   }
-// `;
-
-const Text = styled.p`
-  align-self: flex-start;
-  color: #f3f3f3;
-  padding: 0rem 1rem;
-  font-size: 1.3rem;
-  line-height: 1.2;
-  @media screen and (min-width: 680px) {
-    /* padding: 0rem 3rem; */
-    font-size: 1.5rem;
-  }
-  @media screen and (min-width: 900px) {
-    font-size: 1.5rem;
-  }
-`;
-
-const List = styled.li`
-  color: #c2c1c1;
-  font-size: 1.2rem;
-  line-height: 1.2;
-  font-weight: 100;
-  margin-bottom: 10px;
-`;
 export default Register;

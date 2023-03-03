@@ -154,6 +154,14 @@ font-style: italic;
   margin-bottom: 10px;
   margin-left: 3.5rem;
 }
+}
+.section .lists li{
+color: #c2c1c1;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  font-weight: 100;
+  margin-bottom: 10px;
+}
 
 
 
