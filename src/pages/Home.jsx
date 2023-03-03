@@ -31,10 +31,10 @@ const Container = styled.div`
   height: 100vh;
 
   p {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: #f3f3f3;
     opacity: 0.7;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   img {

@@ -64,6 +64,10 @@ const Form = styled.form`
     width: 250px;
     margin: 0;
   }
+
+  @media screen and (min-width: 580px) {
+    width: 80%;
+  }
 `;
 
 export default LoginForm;

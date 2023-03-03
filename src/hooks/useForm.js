@@ -12,12 +12,6 @@ export const useForm = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [passwordsMatch, setPasswordsMatch] = useState(true);
 
-  // Check if email field is empty
-  const isEmailFieldEmpty = formData.email === "";
-
-  // Check if password field is empty
-  const isPasswordFieldEmpty = formData.password === "";
-
   const handleChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -59,7 +53,5 @@ export const useForm = () => {
     validatePassword,
     initialState,
     clearPasswords,
-    isEmailFieldEmpty,
-    isPasswordFieldEmpty,
   };
 };

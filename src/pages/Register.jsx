@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 
 // components
 import styled from "styled-components";
@@ -35,10 +35,14 @@ const Register = () => {
           <SubHeading>
             By creating an account on our quiz platform, you can:
           </SubHeading>
-          <ListsContainer>
-            <List>Put your knowledge to tests and compete with others.</List>
-            <List>Track your scores.</List>
-          </ListsContainer>
+          <div>
+            <List>
+              <p>Put your knowledge to tests and compete with others.</p>
+            </List>
+            <List>
+              <p>Track your scores.</p>
+            </List>
+          </div>
           <Footer>
             As a teacher, you can create your own quizzes to share with your
             students and{" "}
@@ -52,19 +56,10 @@ const Register = () => {
 };
 
 // styled components
-
 const HeadingContainer = styled.div`
   padding: 0rem 1rem;
   text-transform: uppercase;
   text-align: center;
-
-  @media screen and (min-width: 1080px) {
-    font-size: 2.3rem;
-  }
-
-  @media screen and (min-width: 680px) and (max-width: 900px) {
-    font-size: 2.6rem;
-  }
 `;
 
 const Heading = styled.h2`
@@ -85,46 +80,39 @@ const DescriptionContainer = styled.div`
 `;
 
 const SubHeading = styled.p`
-  padding: 0rem 1rem;
   margin-bottom: 2rem;
   font-size: 1.3rem;
   line-height: 1.2;
 
   @media screen and (min-width: 900px) {
-    align-self: flex-start;
     font-size: 1.5rem;
   }
 `;
 
-const ListsContainer = styled.ul`
-  margin-bottom: 10px;
-  margin-left: 3.5rem;
-  @media screen and (min-width: 580px) {
-    font-size: 1.5rem;
-  }
-`;
+const List = styled.div`
+  background-color: #fec6ff;
+  border-radius: 4px;
+  padding: 10px 20px;
+  margin: 0 0 28px;
+  color: #091322;
 
-const List = styled.li`
-  color: #d4d3d3;
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  line-height: 1.2;
-  font-weight: 200;
-  margin-bottom: 20px;
-  @media screen and (min-width: 580px) {
-    font-size: 1.3rem;
+  p {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    line-height: 1.2;
   }
 `;
 
 const Footer = styled.p`
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  /* margin-top: 2rem;
+  margin-bottom: 1rem; */
   font-size: 1.2rem;
   font-weight: 300;
   line-height: 1.3;
   text-align: center;
   @media screen and (min-width: 580px) {
-    align-self: flex-start;
     font-size: 1.5rem;
   }
 `;

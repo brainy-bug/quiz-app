@@ -37,7 +37,7 @@ const Sidebar = () => {
             <h2>Reports</h2>
           </Link>
         </Links>
-        <LogOutContainer>Logout</LogOutContainer>
+        <LogOut>Logout</LogOut>
       </LinksContainer>
     </Container>
   );
@@ -88,6 +88,8 @@ const LinksContainer = styled.div`
   height: 100%;
   width: 100%;
   border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Links = styled.ul`
@@ -117,27 +119,24 @@ const Link = styled.li`
   }
 `;
 
-const LogOutContainer = styled.div`
-  width: 80%;
+const LogOut = styled.button`
   background-color: #091322;
+  width: 80%;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
   color: #afabab;
-  height: 15%;
-  margin: auto auto;
+  margin: 0 auto;
   border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: 0.75rem;
-
+  margin-top: 2rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #2f3031;
+  }
   a {
     color: #9fe8f1;
     text-decoration: none;
-  }
-  margin-top: 1rem;
-
-  @media screen and (min-width: 320px) and (max-width: 1080px) {
-    /* margin-bottom: 2rem; */
   }
 `;
 
