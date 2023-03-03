@@ -37,11 +37,11 @@ const Register = () => {
             <List>Put your knowledge to tests and compete with others.</List>
             <List>Track your scores</List>
           </ul>
-          <p className='footer'>
+          <Footer>
             As a teacher, you can create your own quizzes to share with your
-            students and{' '}
+            students and{" "}
             <span style={{ color: "#d4a200" }}>track their progress.</span>
-          </p>
+          </Footer>
         </div>
       </SideContainer>
       <RegisterForm />
@@ -49,4 +49,35 @@ const Register = () => {
   );
 };
 
+// const Heading = styled.h2`
+//   color: #f3f3f3;
+//   font-size: 2rem;
+//   padding: 0rem 2rem;
+//   text-transform: uppercase;
+//   text-align: center;
+//   @media screen and (min-width: 1080px) {
+//     font-size: 2.3rem;
+//   }
+
+//   @media screen and (min-width: 680px) and (max-width: 900px) {
+//     font-size: 2.6rem;
+//   }
+// `;
+
+
+const Footer = styled.p`
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.3;
+  text-align: center;
+`;
+const List = styled.li`
+  color: #c2c1c1;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  font-weight: 100;
+  margin-bottom: 10px;
+`;
 export default Register;
