@@ -22,6 +22,8 @@ const Register = () => {
   }
 
   return (
+    <main>
+
     <Container className=''>
       <ScrollToTop />
       <SideContainer>
@@ -41,6 +43,7 @@ const Register = () => {
       </SideContainer>
       <RegisterForm />
     </Container>
+    </main>
   );
 };
 

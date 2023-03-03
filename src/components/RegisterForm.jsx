@@ -163,7 +163,7 @@ const RadioContainer = styled.div`
 const Label = styled.label`
   margin-left: 6px;
   color: #091322;
-  font-size: 18px;
+  font-size: 16px;
   text-transform: capitalize;
 `;
 
@@ -175,7 +175,7 @@ const RoleText = styled.h2`
   margin-bottom: 16px;
   color: #091322;
   opacity: 0.7;
-  font-size: 20px;
+  font-size: 18px;
   align-self: flex-start;
   text-transform: none;
 `;

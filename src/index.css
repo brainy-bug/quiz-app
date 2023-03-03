@@ -100,7 +100,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #091322;
+  /* background-color: #091322; */
 }
 
 img{
@@ -198,12 +198,12 @@ Form
   align-items: center;
   justify-content: space-around;
   height: 100vh;
+  width: 100%;
   max-width: var(--max-width);
   background: var(--clr-white);
   border-radius: var(--radius);
   padding: 2rem;
   opacity: 1;
-  width: 100%;
 }
 @media screen and (min-width: 575px){ 
   #form-container{
