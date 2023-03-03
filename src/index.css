@@ -103,7 +103,7 @@ main {
 
 .section{
    display: flex;
-  align-items: center;
+  align-items: space-evenly;
   flex-direction: column;
   width: 100%;
   min-height: 100%;
