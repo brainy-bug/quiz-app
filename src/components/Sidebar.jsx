@@ -134,7 +134,7 @@ const LogOutContainer = styled.div`
     color: #9fe8f1;
     text-decoration: none;
   }
-  margin-top: 0.75rem;
+  margin-top: 1rem;
 
   @media screen and (min-width: 320px) and (max-width: 1080px) {
     /* margin-bottom: 2rem; */
