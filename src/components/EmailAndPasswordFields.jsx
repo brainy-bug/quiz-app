@@ -4,15 +4,24 @@ import React from "react";
 import { IoMdLock } from "react-icons/io";
 import { GrMail } from "react-icons/gr";
 
-const EmailPasswordInput = ({ email, password, handleChange }) => {
-// const {isPasswordFieldEmpty}=useForm()
+import { useForm } from "../hooks/useForm";
+
+const EmailAndPasswordFields = ({
+  email,
+  showPassword,
+  password,
+  handleChange,
+  toggleShowPassword,
+}) => {
+  // const { toggleShowPassword } = useForm();
+
   return (
     <>
       <div className='input-container'>
         <label htmlFor='email'>{<GrMail />}</label>
         <input
           className='form-input'
-          type='email'  
+          type='email'
           name='email'
           value={email}
           onChange={handleChange}
@@ -25,17 +34,19 @@ const EmailPasswordInput = ({ email, password, handleChange }) => {
         <label htmlFor='password'>{<IoMdLock />}</label>
         <input
           className='form-input'
-          type='password'
+          type={showPassword ? "text" : "password"}
           name='password'
           value={password}
           onChange={handleChange}
           placeholder='password'
           required={true}
         />
-        {/* {} */}
+        <button onClick={toggleShowPassword} className='show-btn' type='button'>
+          {showPassword ? "Hide" : "Show"}
+        </button>
       </div>
     </>
   );
 };
 
-export default React.memo(EmailPasswordInput);
+export default React.memo(EmailAndPasswordFields);

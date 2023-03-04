@@ -11,11 +11,17 @@ export const useForm = () => {
   const [formData, setFormData] = useState(initialState);
   const [errorMessage, setErrorMessage] = useState(null);
   const [passwordsMatch, setPasswordsMatch] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   const handleChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
     }));
     setErrorMessage(null);
   };
@@ -35,6 +41,10 @@ export const useForm = () => {
     }));
   };
 
+  const clearFields = () => {
+    setFormData(initialState);
+  };
+
   useEffect(() => {
     if (formData.password !== formData.confirmPassword) {
       setPasswordsMatch(false);
@@ -45,6 +55,8 @@ export const useForm = () => {
 
   return {
     formData,
+    showPassword,
+    toggleShowPassword,
     setFormData,
     errorMessage,
     passwordsMatch,
@@ -53,5 +65,6 @@ export const useForm = () => {
     validatePassword,
     initialState,
     clearPasswords,
+    clearFields,
   };
 };

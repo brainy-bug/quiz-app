@@ -1,6 +1,6 @@
 // components
 import styled from "styled-components";
-import EmailPasswordInput from "./EmailPasswordInput";
+import EmailAndPasswordFields from "./EmailAndPasswordFields";
 import FormHeading from "./FormHeading";
 import FormFooter from "./FormFooter";
 
@@ -16,7 +16,14 @@ import { useLoading } from "../hooks/useLoading";
 
 const LoginForm = () => {
   const { handleLogin } = useAuth();
-  const { formData, handleChange, setFormData, initialState } = useForm();
+  const {
+    formData,
+    handleChange,
+    setFormData,
+    initialState,
+    showPassword,
+    toggleShowPassword,
+  } = useForm();
   const { email, password } = formData;
 
   const { isLoading } = useLoading();
@@ -41,7 +48,12 @@ const LoginForm = () => {
             {errorMessage} or <Link to='/register'>create a new account.</Link>
           </Error>
         )} */}
-        <EmailPasswordInput {...formData} handleChange={handleChange} />
+        <EmailAndPasswordFields
+          {...formData}
+          handleChange={handleChange}
+          showPassword={showPassword}
+          toggleShowPassword={toggleShowPassword}
+        />
         <button className='submit-btn'>Continue</button>
         <FormFooter
           text='New to the app'

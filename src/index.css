@@ -249,7 +249,7 @@ Form
   opacity: 1;
 }
 
- @media screen and (min-width: 900px) {
+@media screen and (min-width: 900px) {
   #form-container{
     padding: 5%;
   }
@@ -263,6 +263,8 @@ Form
 
 .input-container {
   display: flex;
+  position: relative;
+justify-content: center;
 }
 
 .input-container label {
@@ -299,6 +301,20 @@ Form
   margin-top: 0.5rem;
   margin-bottom: 13px;
 }
+
+.show-btn{
+    position: absolute;
+    right: 0;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: #8c8c8c;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
 /*
 =============== 
 Loading

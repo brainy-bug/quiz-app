@@ -2,7 +2,7 @@ import React, { useNavigate } from "react";
 
 // components
 import styled from "styled-components";
-import EmailPasswordInput from "./EmailPasswordInput";
+import EmailAndPasswordFields from "./EmailAndPasswordFields";
 import FormHeading from "./FormHeading";
 import FormFooter from "./FormFooter";
 import Error from "./Error";
@@ -11,6 +11,7 @@ import Error from "./Error";
 import { IoMdPerson } from "react-icons/io";
 import { MdOutlinePassword } from "react-icons/md";
 import { CgSpinner } from "react-icons/cg";
+import { BiShow } from "react-icons/bi";
 
 import SignupSVG from "../assets/misc/registration.svg";
 
@@ -21,14 +22,15 @@ import { useAuth } from "../hooks/useAuth";
 const RegisterForm = () => {
   const {
     formData,
+    showPassword,
     handleChange,
     errorMessage,
     setErrorMessage,
     passwordsMatch,
     validatePassword,
-    initialState,
-    setFormData,
     clearPasswords,
+    clearFields,
+    toggleShowPassword,
   } = useForm();
   // const { handleSignup } = useAuth();
 
@@ -49,7 +51,8 @@ const RegisterForm = () => {
     }
     // leSignup(...formData);
     else {
-      setFormData(initialState);
+      console.log(formData);
+      clearFields();
     }
   };
 
@@ -70,12 +73,17 @@ const RegisterForm = () => {
             required={true}
           />
         </div>
-        <EmailPasswordInput {...formData} handleChange={handleChange} />
+        <EmailAndPasswordFields
+          {...formData}
+          handleChange={handleChange}
+          showPassword={showPassword}
+          toggleShowPassword={toggleShowPassword}
+        />
         <div className='input-container'>
           <label htmlFor='confirmPassword'>{<MdOutlinePassword />}</label>
           <input
             className='form-input'
-            type='password'
+            type={showPassword ? "text" : "password"}
             name='confirmPassword'
             value={confirmPassword}
             onChange={handleChange}
@@ -93,14 +101,14 @@ const RegisterForm = () => {
                 name='role'
                 value={role}
                 onChange={handleChange}
+                checked={formData.role === role}
                 required={true}
               />
               <Label htmlFor={role}>{role}</Label>
             </div>
           ))}
         </RadioContainer>
-        <Button className='submit-btn'>
-          {/* <CgSpinner /> */}
+        <Button className='submit-btn' type='submit'>
           Get Started
         </Button>
         <FormFooter
