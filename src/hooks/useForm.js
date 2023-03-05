@@ -71,6 +71,7 @@ export const useForm = (callback) => {
   const handleSubmit = (event, formType) => {
     event.preventDefault();
     setIsAuthenticating(true);
+    setErrorMessage(null);
 
     // Handle forms
     if (formType === "signup") handleSignup();
@@ -84,14 +85,14 @@ export const useForm = (callback) => {
       [name]: value,
     }));
 
-    if (!errorMessage?.type) setErrorMessage(null);
+    if (!errorMessage?.type ) setErrorMessage(null);
   };
 
   useEffect(() => {
     if (isAuthenticating) {
       const timeoutId = setTimeout(() => {
         setIsAuthenticating(false);
-      }, 2000);
+      }, 3000);
 
       return () => clearTimeout(timeoutId);
     } else if (!isAuthenticating) {
@@ -111,7 +112,7 @@ export const useForm = (callback) => {
     if (errorMessage?.type === "otherErrors") {
       const timeoutId = setTimeout(() => {
         setErrorMessage(null);
-      }, 2000);
+      }, 3000);
       return () => clearTimeout(timeoutId);
     }
   }, [errorMessage]);
