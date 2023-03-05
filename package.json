@@ -16,7 +16,8 @@
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.8.1",
     "react-scroll": "^1.8.9",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

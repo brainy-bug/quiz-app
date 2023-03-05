@@ -1,71 +1,62 @@
+import { Link } from "react-router-dom";
+
 // components
 import styled from "styled-components";
 import EmailAndPasswordFields from "./EmailAndPasswordFields";
 import FormHeading from "./FormHeading";
 import FormFooter from "./FormFooter";
-
-// contexts
-import { useAuth } from "../hooks/useAuth";
+import FormButton from "./FormButton";
+import Error from "./Error";
 
 import LoginSVG from "../assets/misc/login.svg";
-import Error from "./Error";
-import { Link } from "react-router-dom";
-// import { useFormContext } from "../hooks/useFormContext";
 import { useForm } from "../hooks/useForm";
-import { useLoading } from "../hooks/useLoading";
+import { useAuth } from "../hooks/useAuth";
 
 const LoginForm = () => {
-  const { handleLogin } = useAuth();
   const {
     formData,
     handleChange,
-    setFormData,
-    initialState,
+    handleSubmit,
+    errorMessage,
     showPassword,
     toggleShowPassword,
+    isAuthenticating,
   } = useForm();
-  const { email, password } = formData;
+  const { msg, route, routeText } = errorMessage || {};
 
-  const { isLoading } = useLoading();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // handleLogin(email, password);
-    // if (errorMessage) {
-    // }
-    setFormData(initialState);
-  };
-
-  // if (!isLoading) {
-  //   // const { errorMessage } = error;
-  // }
   return (
     <div id='form-container'>
-      <Form id='form' onSubmit={handleSubmit}>
+      <MainForm id='form' onSubmit={(event) => handleSubmit(event, "login")}>
         <FormHeading image={LoginSVG} text='Sign in' />
-        {/* {errorMessage && (
+        {msg && (
           <Error>
-            {errorMessage} or <Link to='/register'>create a new account.</Link>
+            {` ${msg}`}
+            {route && (
+              <>
+                {` Please try again or `}
+                <Link to={route}>{routeText}</Link>
+              </>
+            )}
           </Error>
-        )} */}
+        )}
         <EmailAndPasswordFields
           {...formData}
           handleChange={handleChange}
           showPassword={showPassword}
           toggleShowPassword={toggleShowPassword}
         />
-        <button className='submit-btn'>Continue</button>
+        <FormButton isAuthenticating={isAuthenticating} text='Continue' />
         <FormFooter
           text='New to the app'
           route='/register'
           routeText='Register'
         />
-      </Form>
+      </MainForm>
     </div>
   );
 };
 
-const Form = styled.form`
+const MainForm = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;

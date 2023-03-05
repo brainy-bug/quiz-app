@@ -68,7 +68,7 @@ Global Styles
   src: url("../../assets/fonts/Roboto-Italic.ttf") format("truetype");
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"); */
 
 body {
   font-family: "Roboto", sans-serif;
@@ -302,6 +302,12 @@ justify-content: center;
   margin-bottom: 13px;
 }
 
+.submit-btn:disabled{
+  cursor:auto;
+  background: #AD40AF;
+  color: var(--clr-white);
+}
+
 .show-btn{
     position: absolute;
     right: 0;
@@ -320,7 +326,16 @@ justify-content: center;
 Loading
 ===============
 */
-@keyframes spinner {
+.spin {
+  font-size: 1.2rem;
+
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
   to {
     transform: rotate(360deg);
   }

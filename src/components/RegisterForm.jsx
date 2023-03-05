@@ -5,17 +5,16 @@ import styled from "styled-components";
 import EmailAndPasswordFields from "./EmailAndPasswordFields";
 import FormHeading from "./FormHeading";
 import FormFooter from "./FormFooter";
+import FormButton from "./FormButton";
 import Error from "./Error";
 
 // import icons
 import { IoMdPerson } from "react-icons/io";
 import { MdOutlinePassword } from "react-icons/md";
-import { CgSpinner } from "react-icons/cg";
-import { BiShow } from "react-icons/bi";
 
 import SignupSVG from "../assets/misc/registration.svg";
 
-// contexts
+// hooks
 import { useForm } from "../hooks/useForm";
 import { useAuth } from "../hooks/useAuth";
 
@@ -23,44 +22,24 @@ const RegisterForm = () => {
   const {
     formData,
     showPassword,
-    handleChange,
-    errorMessage,
-    setErrorMessage,
-    passwordsMatch,
-    validatePassword,
-    clearPasswords,
-    clearFields,
     toggleShowPassword,
+    errorMessage,
+    handleChange,
+    handleSubmit,
+    isAuthenticating,
   } = useForm();
-  // const { handleSignup } = useAuth();
+  // const { isAuthenticating } = useAuth();
 
-  const { username, confirmPassword, password } = formData;
+  const { username, confirmPassword } = formData;
   const roles = ["teacher", "student"];
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const passwordError = validatePassword(password);
-    if (passwordError) {
-      setErrorMessage(passwordError);
-      clearPasswords();
-    } else if (!passwordsMatch) {
-      setErrorMessage(
-        "Sorry, the passwords you entered do not match, please try again."
-      );
-      clearPasswords();
-    }
-    // leSignup(...formData);
-    else {
-      console.log(formData);
-      clearFields();
-    }
-  };
+  const { msg } = errorMessage || {};
 
   return (
     <div id='form-container'>
       <FormHeading image={SignupSVG} text='Create Your Account' />
-      {errorMessage && <Error>{errorMessage}</Error>}
-      <MainForm onSubmit={handleSubmit}>
+      {msg && <Error>{msg}</Error>}
+
+      <MainForm onSubmit={(event) => handleSubmit(event, "signup")}>
         <div className='input-container'>
           <label htmlFor='text'>{<IoMdPerson />}</label>
           <input
@@ -108,9 +87,7 @@ const RegisterForm = () => {
             </div>
           ))}
         </RadioContainer>
-        <Button className='submit-btn' type='submit'>
-          Get Started
-        </Button>
+        <FormButton isAuthenticating={isAuthenticating} text='Get started' />
         <FormFooter
           text='Have an account?'
           route='/login'
@@ -149,10 +126,6 @@ const MainForm = styled.form`
   p {
     grid-column: span 2;
   }
-`;
-
-const Button = styled.button`
-  grid-column: span 2;
 `;
 
 const RadioContainer = styled.div`
