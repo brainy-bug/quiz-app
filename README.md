@@ -1,8 +1,4 @@
-# quiz-appCertainly! Here's a short description you can include in your README file:
 
-# Quiz Website
-
-Welcome to our Quiz Website, an engaging platform built using 
 
 # Quiz App
 
